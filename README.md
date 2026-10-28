@@ -20,12 +20,15 @@ DIOO is an e-commerce backend for a dropshipping store. It receives order webhoo
 
 Lab 4 is a separate hands-on coding lab. It fixes and extends a Pygame game with an LLM as a pair-programming partner.
 
+Lab 5 is also separate. It uses Pylint, Bandit and Flake8 to find and fix quality, style and security issues in a small Python program.
+
 | Lab | Topic | Main deliverable |
 |---|---|---|
 | [Lab 1](lab1/) | Requirements Engineering & UML Use-Case Modelling | Requirements table, use-case diagram, use-case flow |
 | [Lab 2](lab2/) | Agile Backlog Creation & Sprint Simulation in Jira | Epics, user stories, two sprints, burndown charts |
 | [Lab 3](lab3/) | Component Modelling & Architectural Pattern Selection | UML component diagram, architecture justification |
 | [Lab 4](lab4/) | VibeCoding: Meteor Dodge | Fixed and extended Pygame game, LLM chat history |
+| [Lab 5](lab5/) | Static Code Analysis: Tournament Scoreboard | Fixed program, issue table, reflection, before/after reports |
 
 ---
 
@@ -128,6 +131,34 @@ Controls: **SPACE** to launch, fire, and restart. **WASD / arrow keys** to steer
 
 ---
 
+## Lab 5: Static Code Analysis (Tournament Scoreboard)
+
+**Objective:** Use Pylint, Bandit and Flake8 to find quality, style and security issues in an assigned Python program, fix them, and verify the fixes by rerunning the tools.
+
+**About the project:** A league scoreboard script (assigned repo: `SETAPESU26/L5_38_tournament_scoreboard`) that records match results and builds a points table.
+
+**What was done**
+| Tool | Before | After |
+|---|---|---|
+| Pylint | 4.75/10 | 10.00/10 |
+| Bandit | 4 issues (1 High, 1 Medium, 2 Low) | 0 issues |
+| Flake8 | 4 violations | 0 violations |
+
+- Replaced a shell `os.system` call (command injection) with `subprocess.run` on a validated argument list, and the deprecated `tempfile.mktemp` with `mkstemp`.
+- Fixed a mutable default argument (`players=[]`) that made every team share one player list.
+- Renamed functions to snake_case, added docstrings and fixed the PEP 8 spacing issues.
+- One commit per tool: Bandit, Flake8, Pylint.
+
+**Files**
+| File | Contents |
+|---|---|
+| [`lab5/tournament_scoreboard.py`](lab5/tournament_scoreboard.py) | Corrected program |
+| [`lab5/issues.md`](lab5/issues.md) | Issue documentation table |
+| [`lab5/reflection.md`](lab5/reflection.md) | Reflection answers |
+| [`lab5/reports/`](lab5/reports/) | Pylint, Bandit and Flake8 reports, before and after |
+
+---
+
 ## Repository Structure
 
 ```
@@ -142,9 +173,15 @@ SE/
 ├── lab3/   Component modelling & architecture
 │   ├── SE_Lab3_PES2UG24CS042.pdf
 │   └── README.md
-└── lab4/   VibeCoding: Meteor Dodge
-    ├── Chat_History_PES2UG24CS042.pdf
+├── lab4/   VibeCoding: Meteor Dodge
+│   ├── Chat_History_PES2UG24CS042.pdf
+│   ├── README.md
+│   ├── meteor-dodge/
+│   └── screenshots/
+└── lab5/   Static code analysis: Tournament Scoreboard
+    ├── tournament_scoreboard.py
+    ├── issues.md
+    ├── reflection.md
     ├── README.md
-    ├── meteor-dodge/
-    └── screenshots/
+    └── reports/   before/ and after/
 ```
