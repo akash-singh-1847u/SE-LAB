@@ -1,0 +1,31 @@
+PS D:\asd\SE\lab6> coverage run -m pytest -v CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py
+============================================ test session starts ============================================
+platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\akash singh\AppData\Local\Python\pythoncore-3.14-64\python.exe
+cachedir: .pytest_cache
+rootdir: D:\asd\SE\lab6
+plugins: anyio-4.15.1, platformdirs-4.13.5
+collecting ... collected 14 items
+
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_request_above_keeps_going_up PASSED  [  7%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_only_requests_below_turns_down PASSED [ 14%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_no_requests_goes_idle PASSED         [ 21%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_request_below_keeps_going_down PASSED [ 28%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_only_requests_above_turns_up PASSED [ 35%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_no_requests_goes_idle PASSED       [ 42%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_request_above_goes_up PASSED       [ 50%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_request_below_goes_down PASSED     [ 57%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_no_requests_stays_idle PASSED      [ 64%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_emergency_holds_doors PASSED                 [ 71%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_overload_blocks_closing PASSED               [ 78%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_blocked_door_reopens PASSED                  [ 85%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_normal_load_closes PASSED                    [ 92%]
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_runs_whole_loop PASSED         [100%]
+
+============================================ 14 passed in 0.09s =============================================
+PS D:\asd\SE\lab6> coverage report -m
+Name                                                  Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------------------
+CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py      30      0   100%
+elevator_dispatch.py                                     39      0   100%
+-----------------------------------------------------------------------------------
+TOTAL                                                    69      0   100%
