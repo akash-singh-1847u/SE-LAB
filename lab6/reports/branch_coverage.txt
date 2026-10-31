@@ -1,0 +1,45 @@
+PS D:\asd\SE\lab6> coverage run --branch -m pytest -v BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py
+============================================ test session starts ============================================
+platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\akash singh\AppData\Local\Python\pythoncore-3.14-64\python.exe
+cachedir: .pytest_cache
+rootdir: D:\asd\SE\lab6
+plugins: anyio-4.15.1, platformdirs-4.13.5
+collecting ... collected 28 items
+
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_request_above_keeps_going_up PASSED [  3%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_only_requests_below_turns_down PASSED [  7%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_with_no_requests_goes_idle PASSED       [ 10%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_up_prefers_above_when_requests_both_sides PASSED [ 14%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_request_below_keeps_going_down PASSED [ 17%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_only_requests_above_turns_up PASSED [ 21%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_with_no_requests_goes_idle PASSED     [ 25%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_down_prefers_below_when_requests_both_sides PASSED [ 28%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_request_above_goes_up PASSED     [ 32%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_request_below_goes_down PASSED   [ 35%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_with_no_requests_stays_idle PASSED    [ 39%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_idle_prefers_up_when_requests_both_sides PASSED [ 42%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_request_on_current_floor_is_ignored PASSED [ 46%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_unknown_direction_falls_through_to_idle_logic PASSED [ 50%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_emergency_holds_doors PASSED               [ 53%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_emergency_beats_overload_and_block PASSED  [ 57%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_overload_blocks_closing PASSED             [ 60%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_overload_beats_blocked PASSED              [ 64%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_load_exactly_at_limit_is_not_overload PASSED [ 67%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_blocked_door_reopens PASSED                [ 71%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_normal_load_closes PASSED                  [ 75%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_with_no_cars_returns_none PASSED [ 78%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_single_idle_car PASSED       [ 82%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_single_busy_car PASSED       [ 85%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_later_closer_car_wins PASSED [ 89%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_later_farther_car_loses PASSED [ 92%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_tie_keeps_first_car PASSED   [ 96%]
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py::test_pick_elevator_busy_penalty_changes_choice PASSED [100%]
+
+============================================ 28 passed in 0.11s =============================================
+PS D:\asd\SE\lab6> coverage report -m
+Name                                                    Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------------------
+BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py      64      0      0      0   100%
+elevator_dispatch.py                                       39      0     28      0   100%
+---------------------------------------------------------------------------------------------------
+TOTAL                                                     103      0     28      0   100%
