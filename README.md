@@ -22,6 +22,8 @@ Lab 4 is a separate hands-on coding lab. It fixes and extends a Pygame game with
 
 Lab 5 is also separate. It uses Pylint, Bandit and Flake8 to find and fix quality, style and security issues in a small Python program.
 
+Lab 6 is also separate. It uses coverage and pytest to measure line and branch coverage of a small Python module and writes tests until both reach 100%.
+
 | Lab | Topic | Main deliverable |
 |---|---|---|
 | [Lab 1](lab1/) | Requirements Engineering & UML Use-Case Modelling | Requirements table, use-case diagram, use-case flow |
@@ -29,6 +31,7 @@ Lab 5 is also separate. It uses Pylint, Bandit and Flake8 to find and fix qualit
 | [Lab 3](lab3/) | Component Modelling & Architectural Pattern Selection | UML component diagram, architecture justification |
 | [Lab 4](lab4/) | VibeCoding: Meteor Dodge | Fixed and extended Pygame game, LLM chat history |
 | [Lab 5](lab5/) | Static Code Analysis: Tournament Scoreboard | Fixed program, issue table, reflection, before/after reports |
+| [Lab 6](lab6/) | Code and Branch Coverage: Elevator Dispatch | Code and branch coverage test files, coverage screenshots |
 
 ---
 
@@ -159,6 +162,35 @@ Controls: **SPACE** to launch, fire, and restart. **WASD / arrow keys** to steer
 
 ---
 
+## Lab 6: Code and Branch Coverage (Elevator Dispatch)
+
+**Objective:** Use Python's coverage library with pytest to measure line and branch coverage, find untested paths, and write tests until both reach at least 90%.
+
+**About the project:** A small elevator module (assigned repo: `SETAPESU26/L6_L7_38_elevator_dispatch`) that picks a car's travel direction, decides the door action and chooses which car answers a call.
+
+**What was done**
+| Test file | Tests | Line coverage | Branch coverage |
+|---|---|---|---|
+| Starter tests | 2 | 31% | 25% |
+| Code coverage tests | 14 | 100% | 99% |
+| Branch coverage tests | 28 | 100% | 100% |
+
+- The code coverage tests run every line but miss one branch (`40->36` in `pick_elevator`): a later car that is not closer than the current best. Line coverage cannot show this because the False case has no line of its own.
+- The branch coverage tests add that case plus edge cases: equal distances, the busy-car penalty, an empty car list, the 630 kg overload boundary, door-rule precedence and a request on the current floor.
+- One commit per test file: code coverage, then branch coverage.
+
+**Files**
+| File | Contents |
+|---|---|
+| [`lab6/elevator_dispatch.py`](lab6/elevator_dispatch.py) | Module under test |
+| [`lab6/CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py`](lab6/CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py) | Tests for line coverage |
+| [`lab6/BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py`](lab6/BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py) | Tests for branch coverage |
+| [`lab6/screenshots/`](lab6/screenshots/) | Terminal output of the coverage runs |
+| [`lab6/reports/`](lab6/reports/) | Text output of every coverage run, including the starter tests |
+| [`lab6/README.md`](lab6/README.md) | Detailed write-up |
+
+---
+
 ## Repository Structure
 
 ```
@@ -178,10 +210,18 @@ SE/
 │   ├── README.md
 │   ├── meteor-dodge/
 │   └── screenshots/
-└── lab5/   Static code analysis: Tournament Scoreboard
-    ├── tournament_scoreboard.py
-    ├── issues.md
-    ├── reflection.md
+├── lab5/   Static code analysis: Tournament Scoreboard
+│   ├── tournament_scoreboard.py
+│   ├── issues.md
+│   ├── reflection.md
+│   ├── README.md
+│   └── reports/   before/ and after/
+└── lab6/   Code and branch coverage: Elevator Dispatch
+    ├── elevator_dispatch.py
+    ├── test_elevator_dispatch.py
+    ├── CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py
+    ├── BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py
     ├── README.md
-    └── reports/   before/ and after/
+    ├── reports/
+    └── screenshots/
 ```
