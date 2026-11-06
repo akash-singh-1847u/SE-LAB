@@ -24,6 +24,8 @@ Lab 5 is also separate. It uses Pylint, Bandit and Flake8 to find and fix qualit
 
 Lab 6 is also separate. It uses coverage and pytest to measure line and branch coverage of a small Python module and writes tests until both reach 100%.
 
+Lab 7 uses the same repo. It fuzzes three input-parsing functions with Hypothesis, then fixes the crashes it finds.
+
 | Lab | Topic | Main deliverable |
 |---|---|---|
 | [Lab 1](lab1/) | Requirements Engineering & UML Use-Case Modelling | Requirements table, use-case diagram, use-case flow |
@@ -32,6 +34,7 @@ Lab 6 is also separate. It uses coverage and pytest to measure line and branch c
 | [Lab 4](lab4/) | VibeCoding: Meteor Dodge | Fixed and extended Pygame game, LLM chat history |
 | [Lab 5](lab5/) | Static Code Analysis: Tournament Scoreboard | Fixed program, issue table, reflection, before/after reports |
 | [Lab 6](lab6/) | Code and Branch Coverage: Elevator Dispatch | Code and branch coverage test files, coverage screenshots |
+| [Lab 7](lab7/) | Fuzz Testing: Elevator Dispatch | Fixed program, Hypothesis tests, PDF with screenshots |
 
 ---
 
@@ -191,6 +194,28 @@ Controls: **SPACE** to launch, fire, and restart. **WASD / arrow keys** to steer
 
 ---
 
+## Lab 7: Fuzz Testing (Elevator Dispatch)
+
+**Objective:** Use the Hypothesis library to feed random and malformed input to a Python program, find the inputs that crash it, and fix the code.
+
+**About the project:** The lab7 folder of the same assigned repo has three functions that parse user input: a request like `5->9`, a list of floors like `1,5,3,9`, and a load like `450 of 630`.
+
+**What was done**
+- Wrote a no-crash fuzz test for each function (500 random inputs each) and a test that valid input still gives the right answer.
+- On the original code, 3 of 6 tests failed. Hypothesis found 8 crashing inputs, such as `None`, `''`, `'->'` and `' of '`. Four more turned up by hand: `'450 of 0'`, `'-50 of 630'`, `'1->2->3'` and `'1,,3'`.
+- Fixed the functions to return `None` for bad input, and `main()` now prints `invalid input`. All 6 tests pass.
+
+**Files**
+| File | Contents |
+|---|---|
+| [`lab7/elevator_dispatch.py`](lab7/elevator_dispatch.py) | Fixed program |
+| [`lab7/test_elevator_dispatch.py`](lab7/test_elevator_dispatch.py) | Hypothesis fuzz tests |
+| [`lab7/original/`](lab7/original/) | Program before the fix |
+| [`lab7/Lab7_FuzzTesting_PES2UG24CS042.pdf`](lab7/Lab7_FuzzTesting_PES2UG24CS042.pdf) | Report with screenshots |
+| [`lab7/README.md`](lab7/README.md) | Detailed write-up |
+
+---
+
 ## Repository Structure
 
 ```
@@ -216,12 +241,20 @@ SE/
 │   ├── reflection.md
 │   ├── README.md
 │   └── reports/   before/ and after/
-└── lab6/   Code and branch coverage: Elevator Dispatch
+├── lab6/   Code and branch coverage: Elevator Dispatch
+│   ├── elevator_dispatch.py
+│   ├── test_elevator_dispatch.py
+│   ├── CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py
+│   ├── BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py
+│   ├── README.md
+│   ├── reports/
+│   └── screenshots/
+└── lab7/   Fuzz testing: Elevator Dispatch
     ├── elevator_dispatch.py
     ├── test_elevator_dispatch.py
-    ├── CodeCoverageTest_PES2UG24CS042_elevator_dispatch.py
-    ├── BranchCoverageTest_PES2UG24CS042_elevator_dispatch.py
+    ├── Lab7_FuzzTesting_PES2UG24CS042.pdf
     ├── README.md
+    ├── original/
     ├── reports/
     └── screenshots/
 ```
