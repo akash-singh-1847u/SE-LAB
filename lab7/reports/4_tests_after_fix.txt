@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\akash singh\AppData\Local\Python\pythoncore-3.14-64\python.exe
+hypothesis profile 'default'
+rootdir: D:\asd\SE\lab7
+plugins: anyio-4.15.1, hypothesis-6.170.14, platformdirs-4.13.5
+collecting ... collected 6 items
+
+test_elevator_dispatch.py::test_parse_request_no_crash PASSED            [ 16%]
+test_elevator_dispatch.py::test_total_travel_no_crash PASSED             [ 33%]
+test_elevator_dispatch.py::test_load_percent_no_crash PASSED             [ 50%]
+test_elevator_dispatch.py::test_parse_request_valid PASSED               [ 66%]
+test_elevator_dispatch.py::test_total_travel_valid PASSED                [ 83%]
+test_elevator_dispatch.py::test_load_percent_valid PASSED                [100%]
+
+============================== 6 passed in 2.98s ==============================

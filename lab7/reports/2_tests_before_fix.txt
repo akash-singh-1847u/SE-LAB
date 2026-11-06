@@ -1,0 +1,181 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0
+rootdir: D:\asd\SE\lab7
+plugins: anyio-4.15.1, hypothesis-6.170.14, platformdirs-4.13.5
+collected 6 items
+
+test_elevator_dispatch.py FFF...                                         [100%]
+
+================================== FAILURES ===================================
+_________________________ test_parse_request_no_crash _________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 10, in test_parse_request_no_crash
+  |     @given(any_input)
+  |                    ^^
+  | ExceptionGroup: Hypothesis found 3 distinct failures. (3 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 13, in test_parse_request_no_crash
+    |     parse_request(s)
+    |     ~~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 3, in parse_request
+    |     return int(start), int(end)
+    |            ~~~^^^^^^^
+    | ValueError: invalid literal for int() with base 10: ''
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 15, in test_parse_request_no_crash
+    |     assert False, f"parse_request crashed with: {e!r}"
+    | AssertionError: parse_request crashed with: ValueError("invalid literal for int() with base 10: ''")
+    | assert False
+    | Failing test case: test_parse_request_no_crash(
+    |     s='->',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 13, in test_parse_request_no_crash
+    |     parse_request(s)
+    |     ~~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 2, in parse_request
+    |     start, end = text.split('->')
+    |     ^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 15, in test_parse_request_no_crash
+    |     assert False, f"parse_request crashed with: {e!r}"
+    | AssertionError: parse_request crashed with: ValueError('not enough values to unpack (expected 2, got 1)')
+    | assert False
+    | Failing test case: test_parse_request_no_crash(
+    |     s='',  # or any other generated value
+    | )
+    +---------------- 3 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 13, in test_parse_request_no_crash
+    |     parse_request(s)
+    |     ~~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 2, in parse_request
+    |     start, end = text.split('->')
+    |                  ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 15, in test_parse_request_no_crash
+    |     assert False, f"parse_request crashed with: {e!r}"
+    | AssertionError: parse_request crashed with: AttributeError("'NoneType' object has no attribute 'split'")
+    | assert False
+    | Failing test case: test_parse_request_no_crash(
+    |     s=None,  # or any other generated value
+    | )
+    +------------------------------------
+_________________________ test_total_travel_no_crash __________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 19, in test_total_travel_no_crash
+  |     @given(any_input)
+  |                    ^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 22, in test_total_travel_no_crash
+    |     total_travel(s)
+    |     ~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 6, in total_travel
+    |     floors = [int(f) for f in floors_csv.split(',')]
+    |               ~~~^^^
+    | ValueError: invalid literal for int() with base 10: ''
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 24, in test_total_travel_no_crash
+    |     assert False, f"total_travel crashed with: {e!r}"
+    | AssertionError: total_travel crashed with: ValueError("invalid literal for int() with base 10: ''")
+    | assert False
+    | Failing test case: test_total_travel_no_crash(
+    |     s='',
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         D:\asd\SE\lab7\test_elevator_dispatch.py:23
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 22, in test_total_travel_no_crash
+    |     total_travel(s)
+    |     ~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 6, in total_travel
+    |     floors = [int(f) for f in floors_csv.split(',')]
+    |                               ^^^^^^^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 24, in test_total_travel_no_crash
+    |     assert False, f"total_travel crashed with: {e!r}"
+    | AssertionError: total_travel crashed with: AttributeError("'NoneType' object has no attribute 'split'")
+    | assert False
+    | Failing test case: test_total_travel_no_crash(
+    |     s=None,
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         D:\asd\SE\lab7\test_elevator_dispatch.py:23
+    +------------------------------------
+_________________________ test_load_percent_no_crash __________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 28, in test_load_percent_no_crash
+  |     @given(any_input)
+  |                    ^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 31, in test_load_percent_no_crash
+    |     load_percent(s)
+    |     ~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 10, in load_percent
+    |     load, capacity = text.split(' of ')
+    |     ^^^^^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 33, in test_load_percent_no_crash
+    |     assert False, f"load_percent crashed with: {e!r}"
+    | AssertionError: load_percent crashed with: ValueError('not enough values to unpack (expected 2, got 1)')
+    | assert False
+    | Failing test case: test_load_percent_no_crash(
+    |     s='',  # or any other generated value
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 31, in test_load_percent_no_crash
+    |     load_percent(s)
+    |     ~~~~~~~~~~~~^^^
+    |   File "D:\asd\SE\lab7\elevator_dispatch.py", line 10, in load_percent
+    |     load, capacity = text.split(' of ')
+    |                      ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "D:\asd\SE\lab7\test_elevator_dispatch.py", line 33, in test_load_percent_no_crash
+    |     assert False, f"load_percent crashed with: {e!r}"
+    | AssertionError: load_percent crashed with: AttributeError("'NoneType' object has no attribute 'split'")
+    | assert False
+    | Failing test case: test_load_percent_no_crash(
+    |     s=None,  # or any other generated value
+    | )
+    +------------------------------------
+=========================== short test summary info ===========================
+FAILED test_elevator_dispatch.py::test_parse_request_no_crash - ExceptionGrou...
+FAILED test_elevator_dispatch.py::test_total_travel_no_crash - ExceptionGroup...
+FAILED test_elevator_dispatch.py::test_load_percent_no_crash - ExceptionGroup...
+========================= 3 failed, 3 passed in 3.84s =========================

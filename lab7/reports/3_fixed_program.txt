@@ -1,0 +1,23 @@
+==== Running parse_request ====
+Enter a request as FROM->TO (e.g. 5->9): 5->9
+From and To: (5, 9)
+
+==== Running total_travel ====
+Enter floors visited as CSV (e.g. 1,5,3,9): 1,5,3,9
+Floors Travelled: 12
+
+==== Running load_percent ====
+Enter load as 'X of Y' (e.g. 450 of 630): 450 of 630
+Load Percent: 71
+
+==== Running parse_request ====
+Enter a request as FROM->TO (e.g. 5->9): 5-9
+From and To: invalid input
+
+==== Running total_travel ====
+Enter floors visited as CSV (e.g. 1,5,3,9): 1,,3
+Floors Travelled: invalid input
+
+==== Running load_percent ====
+Enter load as 'X of Y' (e.g. 450 of 630): 450 of 0
+Load Percent: invalid input
